@@ -14,6 +14,7 @@ int main()
 	int n;
 	cout<<"Please input the number of cases(1~20):";
 	cin>>n;
+	int a[20],b[20],c[20]; 
 	for(int i=1 ;i<=n ;i++)
 	{
 		
