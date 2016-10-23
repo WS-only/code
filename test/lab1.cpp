@@ -12,7 +12,7 @@ using namespace std;
 int main()
 {
 	string s;
-	cout<<"Plaese enter S:";
+	cout<<"Please enter S:";
 	getline(cin,s);
 	int n;
 	n=s.length();
