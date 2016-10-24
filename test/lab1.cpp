@@ -3,17 +3,25 @@
 时间：2016/10/21
 作者：WS
 备注：1.问题：怎么计算单词数
-      2.问题：怎么把每个单词的字符表示出来 
+      2.问题：怎么把每个单词的字符表示出来
+	  3.问题：怎么把不同的数据放在一起 
 */
 #include<string>                     //输入字符串所需调用的头文件 
 #include<iostream>
 using namespace std;
 
+int wordcount(string s);  
 int main()
 {
-	string s;
-	cout<<"Please enter S:";
+	string s; 
+	cout<<"Please enter s:";
 	getline(cin,s);
+	wordcount(s);                    //计算单词数 
+	return 0;
+} 
+
+int wordcount(string s)
+{
 	int n;
 	n=s.length();
 	int word_num=0;
@@ -26,6 +34,6 @@ int main()
 			}
 		}
 	} 
-	cout<<word_num;                    //计算单词数 
-	return 0;
+	cout<<word_num<<endl;
+	
 } 
