@@ -8,19 +8,27 @@
 */
 #include<string>                     //输入字符串所需调用的头文件 
 #include<iostream>
+#include<fstream>
 using namespace std;
 
-int wordcount(string s);  
+int wordcount(fstream &outfile);  
 int main()
 {
-	string s; 
-	cout<<"Please enter s:";
-	getline(cin,s);
-	wordcount(s);                    //计算单词数 
+	//string s; 
+	//cout<<"Please enter s:";
+	char filename[256];
+    
+    cout<<"please input your filename:"<<endl; //输入要统计的文本的绝对路径
+    cin.getline(filename,256);
+	
+    fstream outfile(filename,ios::in);
+	//getline(cin,s);
+	wordcount(outfile);                    //计算单词数 
+	outfile.close();
 	return 0;
 } 
 
-int wordcount(string s)
+int wordcount(fstream &outfile)
 {
 	int n;
 	n=s.length();
