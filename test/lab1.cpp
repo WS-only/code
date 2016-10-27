@@ -11,49 +11,31 @@
 #include<fstream>
 using namespace std;
 
-//int wordcount(fstream &outfile);  
+void wordcount(fstream &outfile);  
 int main()
 {
-	ifstream in;
-	string filename; 
+	char filename[256]; 
+	int n=0;
     
     cout<<"Please input your filename:"<<endl; //输入要统计的文本的绝对路径
-    getline(cin,filename,'\n');
+    cin.getline(filename,256);
     
-    open(filename);                         //打开文件 
-	
-	if(!in)
-	{
-		cout<<"Error opening file!"<<endl;
-		return 1;
-	} 
-	
-	char ch;
-	while(!in.eof())
-	{
-		in.read(&ch,1);
-		cout<<ch;
-	}
-	in.close();
+    fstream outfile(filename,ios::in);                         //打开文件 
+	wordcount(outfile);
 	return 0;
 }
 
-/*
-int wordcount(string *s)
+void wordcount(fstream &outfile)
 {
-	int n;
-	n=s.length();
-	int word_num=0;
-	for(int i=0; i<n; i++)
-	{
-		if(s[i]<48||s[i]>57){
-			if(s[i+1]==' '||s[i+1]=='.')
-			{
-				word_num++;
-			}
-		}
-	} 
-	cout<<word_num<<endl;
-	
-} 
-*/
+	int n=0;
+	char ch;
+	while(outfile.get(ch))
+  	{   
+  	    if(ch=' ')
+  	    
+		cout<<ch<<endl;       
+    }
+
+  
+}
+

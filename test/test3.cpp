@@ -33,6 +33,7 @@ void count(fstream &outfile, int *cnt )  //统计函数
 	if(tmp != 0)
 	cnt[2]++;                 //统计行数
 	tmp = 0;
+	cout<<str<<endl;
   }
     
  return ;
