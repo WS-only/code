@@ -298,7 +298,7 @@ cross 1 535
 crowd 1 730
 cultist 1 949
 cultists 1 1026
-cultists-whose 1 925
+cultists--whose 1 925
 damage 1 783
 deadly 1 668
 death 1 1328
@@ -308,7 +308,7 @@ defenses 1 1314
 demo 1 183
 demonlike 1 725
 depending 1 291
-dervish-a 1 790
+dervish--a 1 790
 dexterity 1 620
 did 1 907
 died 1 1254
@@ -477,7 +477,7 @@ shows 1 627
 silhouette 1 85
 since 1 854
 single 1 271
-skill-whenever 1 261
+skill--whenever 1 261
 slaughtering 1 939
 slightly 1 1204
 small 1 527

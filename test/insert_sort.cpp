@@ -1,11 +1,18 @@
-//#include "stdafx.h"
-#include <fstream>
+/*
+算法：insert_sort 
+题目描述：详细见实验一文件，需要输出output.dat文件
+时间：2016/10/21 
+备注： 问题1,文件的读取和写
+       问题2，怎样表示单词
+	   问题3，怎么把每个单词，出现的次数，出现的位置联系在一起 
+*/ 
+#include <fstream>        //文件读和写 
 #include <iostream>
-#include<string>
+#include<string>          //字符串 
 #include<map>
-#include<utility>
+#include<utility>      
 #include<vector>
-#include<cctype>
+#include<cctype>          //检测字母函数所用的头文件 
 using namespace std;
 typedef vector<int>::iterator vt;
 typedef vector<pair<string, vector<int> > > se;
@@ -25,7 +32,7 @@ bool compare(pr const &p1, pr const &p2)
 		return false;
 
 }
-/*元素交换函数，元素类型为pair<string,vector<int>>*/
+//元素交换函数，元素类型为pair<string,vector<int>>
 void swap(pr  &p1, pr &p2)
 {
 	pr temp;
@@ -33,9 +40,7 @@ void swap(pr  &p1, pr &p2)
 	p1 = p2;
 	p2 = temp;
 }
-/*插入排序的思想：假设将要排序的元素之前的序列以按照的要求从大到小排好序，
-若该元素大于前面的元素，保存该元素，然后将前面的元素往后挪，继续比较，
-重复之前的操作，直至不在大于，然后将保存的元素与此时比较的元素的后一个交换*/
+//插入排序（伪代码见课本） 
 void insert_sort(se &seq)
 {
 	pair<string, vector<int> > sr;//保存要排序的元素的变量
@@ -141,12 +146,6 @@ int main(void)
 	for (itor = M.begin(); itor != M.end(); itor++)
 		sequence.push_back(*itor);
 
-	/*cout << "********before heap_sort********" << endl;
-	write_out(sequence);
-	insert_sort(sequence);
-	cout << "********after heap_sort********" << endl;
-	write_out(sequence);
-	cout << "the total words:" << count << endl;*/
 	insert_sort(sequence);
 	ofstream outfile("output.txt");
 	outfile << count << "\n";

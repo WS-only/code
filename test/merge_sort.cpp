@@ -1,15 +1,22 @@
-//#include "stdafx.h"
-#include <fstream>
+/*
+算法：merge_sort 
+题目描述：详细见实验一文件，需要输出output.dat文件
+时间：2016/10/21 
+备注： 问题1,文件的读取和写
+       问题2，怎样表示单词
+	   问题3，怎么把每个单词，出现的次数，出现的位置联系在一起 
+*/ 
+#include <fstream>        //文件读和写 
 #include <iostream>
-#include<string>
+#include<string>          //字符串 
 #include<map>
-#include<utility>
+#include<utility>      
 #include<vector>
-#include<cctype>
+#include<cctype>          //检测字母函数所用的头文件 
 using namespace std;
-typedef vector<int>::iterator vt;
-typedef vector<pair<string, vector<int> > > se;
-typedef pair<string, vector<int> > pr;
+typedef vector<int>::iterator vt;                        //iterator是迭代器 
+typedef vector<pair<string, vector<int> > > se;          //是构建新的类型 
+typedef pair<string, vector<int> > pr;                   //pair将两种数据类型连接 
 typedef vector<pair<string, vector<int> > >::iterator se_t;
 typedef map<string, vector<int> > mp;
 typedef map<string, vector<int> >::iterator mpt;
@@ -23,13 +30,8 @@ bool compare(pr const &p1, pr const &p2)
 		return false;
 
 }
-/*void swap(pr  &p1, pr &p2)
-{
-pr temp;
-temp = p1;
-p1 = p2;
-p2 = temp;
-}*/
+
+
 void sort(se &seq, int p, int r)
 {
 	int z;
@@ -62,7 +64,7 @@ void sort(se &seq, int p, int r)
 		seq[p++] = *itor;
 
 }
-void merge_sort(se & seq)//merge_sort排序入口
+void merge_sort(se & seq)          //merge_sort排序入口
 {
 	int p = 0;
 	int r = seq.size();
@@ -102,10 +104,10 @@ int main(void)
 
 	while (!infile.eof())
 	{
-		infile.get(ch);
+		infile.get(ch);                   //读的每一个字符放入到字符串，并且这个字符串是重复利用的 
 		if (ch > -1 && ch < 127)
 		{
-			if (isalpha(ch))
+			if (isalpha(ch))              //此处直接调用成员函数来判断是不是字母 
 				Ste += ch;
 			else if (ch == '-')
 			{
@@ -152,12 +154,7 @@ int main(void)
 	for (itor = M.begin(); itor != M.end(); itor++)
 		sequence.push_back(*itor);
 
-	/*cout << "********before merge_sort********" << endl;
-	write_out(sequence);
-	merge_sort(sequence);
-	cout << "********after merge_sort********" << endl;
-	write_out(sequence);
-	cout << "the total words:" << count << endl;*/
+
 	merge_sort(sequence);
 	ofstream outfile("output.dat");
 	outfile << count << "\n";
